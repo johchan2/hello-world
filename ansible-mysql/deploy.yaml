@@ -1,0 +1,32 @@
+###
+# The Ansible architecture for deploying mysql
+#
+#
+---
+
+- name: Deploy and configure MYSQL server
+  hosts: dbservers
+  user: "{{ user }}"
+  sudo: yes
+  gather_facts: true
+  vars:
+    user: johnc
+    mysql_username: mysql
+    mysql_password: 5623
+    working_dir: /home/{{ user }}/Downloads
+    install_dir: /home/{{ user }}/mysql
+    mysql_start_script: mysql_server_start.sh
+    mysql_properties_file: mysql_server.properties
+    mysql_log_file: mysql_server.log
+    mysql_zip_name: mysql-5.5_5.5.44-0ubuntu0.12.04.1.debian.tar.gz
+    mysql_install_name: "{{ install_dir }}/mysql"
+    mysql_url: http://archive.ubuntu.com/ubuntu/pool/main/m/mysql-5.5_5.5.44-0ubuntu0.12.04.1.debian.tar.gz
+    dbname: dbname 
+    dbuser: dbuser
+    dbpassword: dbpassword
+
+    packages:
+      - default-jre
+      - zookeeperd
+  roles:
+    - deploy-mysql

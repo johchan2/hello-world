@@ -1,0 +1,10 @@
+---
+
+- name: Add MYSQL Users
+  action: user name={{ mysql_username }}
+          state=present
+          groups="sudo"
+          password={{ mysql_password }}
+          update_password=always
+          shell=/bin/bash home=/home/{{ user }}
+

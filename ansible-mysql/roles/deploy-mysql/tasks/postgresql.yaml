@@ -1,0 +1,5 @@
+- name: Create postgres database
+  sudo: yes
+  sudo_user: postgres
+  postgresql_db:
+    name: <dbname>

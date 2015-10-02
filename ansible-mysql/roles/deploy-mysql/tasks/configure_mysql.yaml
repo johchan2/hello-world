@@ -1,0 +1,4 @@
+---
+
+#- name: configure mysql properties
+#  lineinfile: dest={{ mysql_install_name }}/config/{{ mysql_properties_file }} line="delete.topic.enable = true" state=present

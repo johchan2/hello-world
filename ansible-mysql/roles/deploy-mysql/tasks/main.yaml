@@ -1,0 +1,13 @@
+---
+
+- include: add_users.yaml
+
+- include: install_dependencies.yaml
+
+- include: install_mysql.yaml
+
+- include: configure_mysql.yaml
+
+- include: run_mysql.yaml
+
+- include: postgresql.yaml

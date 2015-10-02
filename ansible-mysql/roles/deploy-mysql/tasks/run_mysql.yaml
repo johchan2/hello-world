@@ -1,0 +1,9 @@
+---
+
+- debug: msg="nohup {{ mysql_install_name }}/bin/{{ mysql_start_script }} {{ mysql_install_name }}/config/{{ mysql_properties_file }} > ~/mysql/{{ mysql_log_file }} 2>&1 &"
+
+- name: start the mysql process
+  sudo: true
+  shell: nohup {{ mysql_install_name }}/bin/{{ mysql_start_script }} {{ mysql_install_name }}/config/{{ mysql_properties_file }} > ~/mysql/{{ mysql_log_file }} 2>&1 &
+  async: 60
+  poll: 0
