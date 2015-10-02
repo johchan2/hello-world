@@ -1,0 +1,27 @@
+###
+# The Ansible architecture for deploying and configuring OpenStack Precursors
+#
+#
+---
+
+- name: Deploy and configure Kafka HA cluster
+  hosts: kafka
+  user: "{{ user }}"
+  sudo: yes
+  vars:
+    user: user
+    kafka_username: kafka
+    kafka_password: kafka
+    working_dir: /home/{{ user }}/Downloads
+    install_dir: /home/{{ user }}/kafka
+    kafka_start_script: kafka-server-start.sh
+    kafka_properties_file: server.properties
+    kafka_log_file: kafka.log
+    kafka_zip_name: kafka_2.11-0.8.2.1.tgz
+    kafka_install_name: "{{ install_dir }}/kafka_2.11-0.8.2.1"
+    kafka_url: http://mirror.cc.columbia.edu/pub/software/apache/kafka/0.8.2.1/kafka_2.11-0.8.2.1.tgz
+    packages:
+      - default-jre
+      - zookeeperd
+  roles:
+    - deploy-kafka

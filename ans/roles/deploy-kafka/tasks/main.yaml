@@ -1,0 +1,11 @@
+---
+
+- include: add_users.yaml
+
+- include: install_dependencies.yaml
+
+- include: install_kafka.yaml
+
+- include: configure_kafka.yaml
+
+- include: run_kafka.yaml

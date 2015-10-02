@@ -1,0 +1,4 @@
+---
+
+- name: configure kafka properties
+  lineinfile: dest={{ kafka_install_name }}/config/{{ kafka_properties_file }} line="delete.topic.enable = true" state=present

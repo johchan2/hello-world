@@ -1,0 +1,10 @@
+---
+
+- name: Add Kafka Users
+  action: user name={{ kafka_username }}
+          state=present
+          groups="sudo"
+          password={{ kafka_password }}
+          update_password=always
+          shell=/bin/bash home=/home/{{ user }}
+

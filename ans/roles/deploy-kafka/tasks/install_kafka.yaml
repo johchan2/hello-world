@@ -1,0 +1,13 @@
+---
+
+- name: create working directory
+  file: path={{ working_dir }} owner={{ user }} state=directory mode=0775
+
+- name: create install directory
+  file: path={{ install_dir }} owner={{ user }} state=directory mode=0775
+
+- name: download kafka
+  get_url: url={{ kafka_url }} dest={{ working_dir }} owner={{ user }} mode=0775
+
+- name: extract kafka
+  unarchive: src={{ working_dir }}/{{ kafka_zip_name }} dest={{ install_dir }} copy=no

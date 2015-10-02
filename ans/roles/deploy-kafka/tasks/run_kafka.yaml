@@ -1,0 +1,12 @@
+---
+
+- debug: msg="nohup {{ kafka_install_name }}/bin/{{ kafka_start_script }} {{ kafka_install_name }}/config/{{ kafka_properties_file }} > ~/kafka/{{ kafka_log_file }} 2>&1 &"
+
+- name: start the kafka process
+  sudo: true
+  shell: nohup {{ kafka_install_name }}/bin/{{ kafka_start_script }} {{ kafka_install_name }}/config/{{ kafka_properties_file }} > ~/kafka/{{ kafka_log_file }} 2>&1 &
+  async: 60
+  poll: 0
+
+- name: test kafka
+  shell: nc -zv {{ inventory_hostname }} 9092
