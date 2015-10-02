@@ -1,0 +1,89 @@
+{
+	"name": "Demo",
+	"id":"demo1",
+	"components":[
+		{
+			"name": "Webserver1",
+			"id": "ws_container1",
+			"meta": {},
+			"config": {},
+			"credentials": {},
+			"type": "CONTAINER",
+			"packages": {},
+			"automation": {},
+			"networking": []
+		},
+		{
+			"name": "Webserver2",
+			"id": "ws_container2",
+			"meta": {},
+			"config": {},
+			"credentials": {},
+			"type": "CONTAINER",
+			"packages": {},
+			"automation": {},
+			"networking": []
+		},
+		{
+			"name": "Webserver3",
+			"id": "ws_container3",
+			"meta": {},
+			"config": {},
+			"credentials": {},
+			"type": "CONTAINER",
+			"packages": {},
+			"automation": {},
+			"networking": []
+		},
+		{
+			"name": "Database",
+			"id": "database",
+			"meta": {},
+			"config": {},
+			"credentials": {},
+			"type": "ANSIBLE",
+			"packages": {},
+			"automation": {},
+			"networking": []
+		}
+	],
+	"topology": {
+		"nodes": [
+			{
+				"cloud_id": "us-texas-3.cloud.cisco.com",
+				"tenant_id": "SOME_UUID",
+				"component_id": "ws_container1",
+				"connections":[
+					{
+						"component_id": "database"
+					}
+				]
+			},
+			{
+				"cloud_id": "us-texas-3.cloud.cisco.com",
+				"tenant_id": "SOME_UUID",
+				"component_id": "ws_container2",
+				"connections":[
+					{
+						"component_id": "database"
+					}
+				]
+			},
+			{
+				"cloud_id": "us-texas-3.cloud.cisco.com",
+				"tenant_id": "SOME_UUID",
+				"component_id": "ws_container3",
+				"connections":[
+					{
+						"component_id": "database"
+					}
+				]
+			},
+			{
+				"cloud_id": "us-texas-3.cloud.cisco.com",
+				"component_id": "database",
+				"tenant_id": "SOME_UUID"
+			}
+		]
+	}
+}
